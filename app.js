@@ -45,8 +45,17 @@ app.use(flash());
 
 // Connect to MongoDB database
 // mongoose.connect("mongodb://localhost/facebook_clone");
+
+// Fix DNS resolution issue for SRV records on this machine
+require("dns").setServers(["8.8.8.8"]);
+
 mongoose.connect(
-    "mongodb://idanlo:7878idanlo@ds161710.mlab.com:61710/facebook_clone"
+    "mongodb+srv://admin:admin@cluster0.zuxjw.mongodb.net/facebook_clone?appName=Cluster0",
+    {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true
+    }
 );
 
 // Passing variables to template files
